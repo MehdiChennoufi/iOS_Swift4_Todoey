@@ -10,20 +10,20 @@ import UIKit
 
 class MainVC: UITableViewController {
 
-  var itemArray = ["Milk", "Eggs", "Books"]
+  // MARK: - Variables
+  let defaults = UserDefaults.standard
+  var itemArray : [String] = []
   
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-         //self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+      if let items = defaults.array(forKey: "todoListArray") as? [String] {
+        itemArray = items
+      }
+      
     }
 
-
-    // MARK: - Table View Data Source Methods
+  // MARK: - Table View Data Source Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -64,6 +64,7 @@ class MainVC: UITableViewController {
         return
       }
         self.itemArray.append(textField.text!)
+        self.defaults.set(self.itemArray, forKey: "todoListArray")
         self.tableView.reloadData()
       }
       
