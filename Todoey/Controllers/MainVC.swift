@@ -29,7 +29,6 @@ class MainVC: UITableViewController {
         return itemArray.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
         
@@ -83,7 +82,7 @@ class MainVC: UITableViewController {
     }
     
     
-    //MARK : - Save and Load items from a local .plist file
+    //MARK : - Save and Load items with a local .plist file
     func saveItems() {
         let encoder = PropertyListEncoder()
         
