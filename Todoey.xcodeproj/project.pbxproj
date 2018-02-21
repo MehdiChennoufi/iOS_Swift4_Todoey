@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		913B1FD3203D6559008EADEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B1FD2203D6559008EADEC /* AppDelegate.swift */; };
-		913B1FD5203D6559008EADEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B1FD4203D6559008EADEC /* ViewController.swift */; };
 		913B1FD8203D6559008EADEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 913B1FD6203D6559008EADEC /* Main.storyboard */; };
 		913B1FDA203D6559008EADEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913B1FD9203D6559008EADEC /* Assets.xcassets */; };
 		913B1FDD203D6559008EADEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 913B1FDB203D6559008EADEC /* LaunchScreen.storyboard */; };
+		913B1FE9203D6601008EADEC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913B1FE8203D6601008EADEC /* MainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		913B1FCF203D6558008EADEC /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		913B1FD2203D6559008EADEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		913B1FD4203D6559008EADEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		913B1FD7203D6559008EADEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		913B1FD9203D6559008EADEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		913B1FDC203D6559008EADEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		913B1FDE203D6559008EADEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		913B1FE8203D6601008EADEC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,46 @@
 		913B1FD1203D6559008EADEC /* Todoey */ = {
 			isa = PBXGroup;
 			children = (
-				913B1FD2203D6559008EADEC /* AppDelegate.swift */,
-				913B1FD4203D6559008EADEC /* ViewController.swift */,
 				913B1FD6203D6559008EADEC /* Main.storyboard */,
+				913B1FE6203D65AB008EADEC /* Views */,
+				913B1FE5203D659A008EADEC /* Controllers */,
+				913B1FE4203D658E008EADEC /* Models */,
+				913B1FE7203D65B2008EADEC /* Supporting Files */,
 				913B1FD9203D6559008EADEC /* Assets.xcassets */,
-				913B1FDB203D6559008EADEC /* LaunchScreen.storyboard */,
 				913B1FDE203D6559008EADEC /* Info.plist */,
 			);
 			path = Todoey;
+			sourceTree = "<group>";
+		};
+		913B1FE4203D658E008EADEC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		913B1FE5203D659A008EADEC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				913B1FE8203D6601008EADEC /* MainVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		913B1FE6203D65AB008EADEC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		913B1FE7203D65B2008EADEC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				913B1FD2203D6559008EADEC /* AppDelegate.swift */,
+				913B1FDB203D6559008EADEC /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +168,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				913B1FD5203D6559008EADEC /* ViewController.swift in Sources */,
 				913B1FD3203D6559008EADEC /* AppDelegate.swift in Sources */,
+				913B1FE9203D6601008EADEC /* MainVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2CS5LFHDLH;
 				INFOPLIST_FILE = Todoey/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mehdi-chennoufi.Todoey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2CS5LFHDLH;
 				INFOPLIST_FILE = Todoey/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mehdi-chennoufi.Todoey";
 				PRODUCT_NAME = "$(TARGET_NAME)";
