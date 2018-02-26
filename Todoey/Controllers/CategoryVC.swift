@@ -8,10 +8,10 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
-class CategoryVC: UITableViewController {
+class CategoryVC: SwipeTableViewController {
 
-    
     // MARK: - Variables
     let realm = try! Realm()
     var categoriesArray : Results<Category>?
@@ -20,6 +20,7 @@ class CategoryVC: UITableViewController {
         super.viewDidLoad()
 
         loadCategories()
+        
     }
 
     //MARK: - Table Views Methods
@@ -29,8 +30,16 @@ class CategoryVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-        cell.textLabel?.text = categoriesArray?[indexPath.row].name ?? "No categories added yet"
+        
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        
+        let category = categoriesArray?[indexPath.row]
+        
+        cell.textLabel?.text = category?.name ?? "No categories added yet"
+        
+        guard let categoryColor = UIColor(hexString: category?.backGroundColor) else {fatalError()}
+        cell.backgroundColor =  categoryColor
+        cell.textLabel?.textColor = UIColor(contrastingBlackOrWhiteColorOn: categoryColor, isFlat: true)
         
         return cell
     }
@@ -61,6 +70,7 @@ class CategoryVC: UITableViewController {
             
             let newCategory = Category()
             newCategory.name = textField.text!
+            newCategory.backGroundColor = UIColor.randomFlat().hexValue()
             
             self.save(newCategory)
         }
@@ -76,7 +86,7 @@ class CategoryVC: UITableViewController {
         
     }
     
-    //MARK: - Data Methods
+    //MARK: - Data Manipulation Methods
     
     func loadCategories() {
         categoriesArray = realm.objects(Category.self)
@@ -94,6 +104,19 @@ class CategoryVC: UITableViewController {
         }
         tableView.reloadData()
     }
-
     
+    //MARK: - Delete data from a swipe
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let catToDelete = self.categoriesArray?[indexPath.row] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(catToDelete)
+                }
+            } catch {
+                print("Error deleting item : \(error)")
+            }
+        }
+    }
+
 }
