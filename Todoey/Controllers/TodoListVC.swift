@@ -53,7 +53,7 @@ class TodoListVC: SwipeTableViewController {
         
         navBar.barTintColor = navBarColor
         navBar.tintColor = UIColor.init(contrastingBlackOrWhiteColorOn: navBarColor, isFlat: true)
-        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.flatWhite()]
+        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : FlatWhite()]
         searchBar.barTintColor = navBarColor
         
         //Handle SearchBar borders
@@ -81,7 +81,9 @@ class TodoListVC: SwipeTableViewController {
             if let colour = UIColor(hexString: selectedCategory!.backGroundColor)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(todoItems!.count)) {
                 
                 cell.backgroundColor = colour
+                
                 cell.textLabel?.textColor = UIColor.init(contrastingBlackOrWhiteColorOn: colour, isFlat: true)
+                
             }
             
         } else {

@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.2'
+platform :ios, '11'
 
 target 'Todoey' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -8,5 +8,5 @@ target 'Todoey' do
   # Pods for Todoey
 pod 'RealmSwift'
 pod 'SwipeCellKit'
-pod 'ChameleonFramework'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 end
